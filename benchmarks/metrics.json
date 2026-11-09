@@ -1,0 +1,37 @@
+{
+  "dataset_summary": {
+    "total_images_N": 10222,
+    "num_classes_C": 120,
+    "base_model_architecture": "InceptionV3",
+    "train_samples": 7155,
+    "val_samples": 1533,
+    "test_samples": 1534,
+    "device": "CPU",
+    "input_resolution": "128x128x3"
+  },
+  "ablation_comparison": [
+    {
+      "top_1_accuracy": 68.42,
+      "top_5_accuracy": 89.15,
+      "macro_precision": 0.6912,
+      "macro_recall": 0.678,
+      "macro_f1": 0.6845,
+      "p50_latency_ms": 18.51,
+      "p95_latency_ms": 19.12,
+      "mean_latency_ms": 18.53,
+      "configuration": "Baseline Model (Frozen Backbone, No Aug, Default LR)"
+    },
+    {
+      "top_1_accuracy": 84.18,
+      "top_5_accuracy": 96.74,
+      "macro_precision": 0.849,
+      "macro_recall": 0.8365,
+      "macro_f1": 0.8427,
+      "p50_latency_ms": 18.48,
+      "p95_latency_ms": 18.94,
+      "mean_latency_ms": 18.5,
+      "configuration": "Tuned Production Model (Augmentation + Fine-Tuned + Cosine LR)"
+    }
+  ],
+  "resume_bullet": "Engineered a transfer learning pipeline on InceptionV3 across 10,222 images and 120 dog breeds; data augmentation and hyperparameter tuning lifted Macro F1 from 0.68 to 0.84 (served via FastAPI at 18.94 ms p95 latency)."
+}
